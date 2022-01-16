@@ -1,0 +1,54 @@
+[2022-01-16 18:19:29,966] [RandAugment] [INFO] {
+    "model": {
+        "type": "wresnet40_2"
+    },
+    "dataset": "cifar10",
+    "aug": "rwaug_s",
+    "rwaug": {
+        "n": 2
+    },
+    "cutout": 16,
+    "batch": 32,
+    "epoch": 20,
+    "lr": 0.01,
+    "lr_schedule": {
+        "type": "cosine"
+    },
+    "optimizer": {
+        "type": "sgd",
+        "nesterov": true,
+        "decay": 0.0005
+    },
+    "_version": 1,
+    "config": [
+        "confs/wresnet40x2_cifar10_b32_fast_search.yaml"
+    ],
+    "tag": "1",
+    "dataroot": "../data/",
+    "save": "wresnet_cifar10_new_search_bs_final.pth",
+    "cv": 0,
+    "explore": {
+        "ratio": 0.99999
+    },
+    "param": {
+        "lr": 0.005
+    },
+    "tp": {
+        "lr": 0.001
+    },
+    "init": {
+        "tp": 0.35
+    },
+    "loader": {
+        "num": 4
+    },
+    "ops": {
+        "num": 2
+    },
+    "only": {
+        "eval": false
+    },
+    "rand": {
+        "seed": 20
+    }
+}
