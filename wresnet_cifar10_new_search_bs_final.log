@@ -52,3 +52,152 @@
         "seed": 20
     }
 }
+[2022-01-19 06:10:24,151] [RandAugment] [INFO] {
+    "model": {
+        "type": "wresnet40_2"
+    },
+    "dataset": "cifar10",
+    "aug": "rwaug_s",
+    "rwaug": {
+        "n": 2
+    },
+    "cutout": 16,
+    "batch": 32,
+    "epoch": 20,
+    "lr": 0.01,
+    "lr_schedule": {
+        "type": "cosine"
+    },
+    "optimizer": {
+        "type": "sgd",
+        "nesterov": true,
+        "decay": 0.0005
+    },
+    "_version": 1,
+    "config": [
+        "confs/wresnet40x2_cifar10_b32_fast_search.yaml"
+    ],
+    "tag": "1",
+    "dataroot": "../data/",
+    "save": "wresnet_cifar10_new_search_bs_final.pth",
+    "cv": 0,
+    "explore": {
+        "ratio": 0.99999
+    },
+    "param": {
+        "lr": 0.005
+    },
+    "tp": {
+        "lr": 0.001
+    },
+    "init": {
+        "tp": 0.35
+    },
+    "loader": {
+        "num": 4
+    },
+    "ops": {
+        "num": 2
+    },
+    "only": {
+        "eval": false
+    },
+    "rand": {
+        "seed": 20
+    }
+}
+[2022-01-19 06:10:42,223] [RandAugment] [INFO] "wresnet_cifar10_new_search_bs_final.pth" file not found. skip to pretrain weights...
+[2022-01-19 06:11:04,946] [RandAugment] [INFO] [train 001/020] {'loss': 69.46495659120622, 'top1': 0.18245967741935484, 'top5': 0.7066532258064516}
+[2022-01-19 06:11:05,360] [RandAugment] [INFO] [valid 001/020] {'loss': 2.488909269332886, 'top1': 0.21300000035762787, 'top5': 0.7140000014305115}
+[2022-01-19 06:11:06,682] [RandAugment] [INFO] [*test 001/020] {'loss': 2.510598538208008, 'top1': 0.208, 'top5': 0.7104}
+[2022-01-19 06:11:06,685] [RandAugment] [INFO] save model@1 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:11:28,394] [RandAugment] [INFO] [train 002/020] {'loss': 65.20897496131158, 'top1': 0.2242943548387097, 'top5': 0.7847782258064516}
+[2022-01-19 06:11:28,805] [RandAugment] [INFO] [valid 002/020] {'loss': 2.0471640663146973, 'top1': 0.2360000010728836, 'top5': 0.7890000004768372}
+[2022-01-19 06:11:29,955] [RandAugment] [INFO] [*test 002/020] {'loss': 2.0405236421585085, 'top1': 0.2599, 'top5': 0.7968}
+[2022-01-19 06:11:29,957] [RandAugment] [INFO] save model@2 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:11:51,266] [RandAugment] [INFO] [train 003/020] {'loss': 63.647962016444055, 'top1': 0.2545362903225806, 'top5': 0.7943548387096774}
+[2022-01-19 06:11:51,672] [RandAugment] [INFO] [valid 003/020] {'loss': 2.714150470733643, 'top1': 0.20150000095367432, 'top5': 0.7635000042915344}
+[2022-01-19 06:11:52,805] [RandAugment] [INFO] [*test 003/020] {'loss': 2.7444285556793213, 'top1': 0.2022, 'top5': 0.7628}
+[2022-01-19 06:12:14,179] [RandAugment] [INFO] [train 004/020] {'loss': 61.329019238871915, 'top1': 0.28225806451612906, 'top5': 0.8240927419354839}
+[2022-01-19 06:12:14,575] [RandAugment] [INFO] [valid 004/020] {'loss': 1.892984956741333, 'top1': 0.28900000047683716, 'top5': 0.8605000004768372}
+[2022-01-19 06:12:15,698] [RandAugment] [INFO] [*test 004/020] {'loss': 1.889464556503296, 'top1': 0.2938, 'top5': 0.8584}
+[2022-01-19 06:12:15,699] [RandAugment] [INFO] save model@4 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:12:36,994] [RandAugment] [INFO] [train 005/020] {'loss': 59.245442482732955, 'top1': 0.30544354838709675, 'top5': 0.84375}
+[2022-01-19 06:12:37,401] [RandAugment] [INFO] [valid 005/020] {'loss': 1.8413592329025268, 'top1': 0.3180000014305115, 'top5': 0.8605000004768372}
+[2022-01-19 06:12:38,543] [RandAugment] [INFO] [*test 005/020] {'loss': 1.839699266052246, 'top1': 0.3141, 'top5': 0.867}
+[2022-01-19 06:12:38,545] [RandAugment] [INFO] save model@5 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:12:59,959] [RandAugment] [INFO] [train 006/020] {'loss': 56.652540822182935, 'top1': 0.32560483870967744, 'top5': 0.8654233870967742}
+[2022-01-19 06:13:00,358] [RandAugment] [INFO] [valid 006/020] {'loss': 1.7558378190994264, 'top1': 0.3350000002384186, 'top5': 0.875000005722046}
+[2022-01-19 06:13:01,510] [RandAugment] [INFO] [*test 006/020] {'loss': 1.7402008943557739, 'top1': 0.3427, 'top5': 0.8849}
+[2022-01-19 06:13:01,512] [RandAugment] [INFO] save model@6 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:13:22,723] [RandAugment] [INFO] [train 007/020] {'loss': 54.87065899756647, 'top1': 0.3492943548387097, 'top5': 0.8865927419354839}
+[2022-01-19 06:13:23,120] [RandAugment] [INFO] [valid 007/020] {'loss': 1.7134920473098756, 'top1': 0.3455000007152557, 'top5': 0.8790000019073486}
+[2022-01-19 06:13:24,322] [RandAugment] [INFO] [*test 007/020] {'loss': 1.7075756240844726, 'top1': 0.3697, 'top5': 0.8792}
+[2022-01-19 06:13:24,323] [RandAugment] [INFO] save model@7 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:13:45,785] [RandAugment] [INFO] [train 008/020] {'loss': 53.78447772610572, 'top1': 0.3654233870967742, 'top5': 0.8865927419354839}
+[2022-01-19 06:13:46,206] [RandAugment] [INFO] [valid 008/020] {'loss': 1.7376184873580933, 'top1': 0.33850000286102294, 'top5': 0.8860000019073486}
+[2022-01-19 06:13:47,401] [RandAugment] [INFO] [*test 008/020] {'loss': 1.7225081102371216, 'top1': 0.3547, 'top5': 0.8829}
+[2022-01-19 06:14:08,830] [RandAugment] [INFO] [train 009/020] {'loss': 51.646184798209894, 'top1': 0.3966733870967742, 'top5': 0.8981854838709677}
+[2022-01-19 06:14:09,244] [RandAugment] [INFO] [valid 009/020] {'loss': 1.6763767881393432, 'top1': 0.3865000021457672, 'top5': 0.8895000057220459}
+[2022-01-19 06:14:10,394] [RandAugment] [INFO] [*test 009/020] {'loss': 1.6718279600143433, 'top1': 0.3948, 'top5': 0.8976}
+[2022-01-19 06:14:10,395] [RandAugment] [INFO] save model@9 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:14:31,892] [RandAugment] [INFO] [train 010/020] {'loss': 50.78187739464544, 'top1': 0.40826612903225806, 'top5': 0.90625}
+[2022-01-19 06:14:32,277] [RandAugment] [INFO] [valid 010/020] {'loss': 1.8080098390579225, 'top1': 0.35700000166893003, 'top5': 0.9130000047683716}
+[2022-01-19 06:14:33,416] [RandAugment] [INFO] [*test 010/020] {'loss': 1.8175871868133544, 'top1': 0.3668, 'top5': 0.9111}
+[2022-01-19 06:14:54,583] [RandAugment] [INFO] [train 011/020] {'loss': 48.37060313070974, 'top1': 0.4440524193548387, 'top5': 0.9243951612903226}
+[2022-01-19 06:14:54,994] [RandAugment] [INFO] [valid 011/020] {'loss': 1.6383857622146607, 'top1': 0.4180000023841858, 'top5': 0.9205000052452087}
+[2022-01-19 06:14:56,131] [RandAugment] [INFO] [*test 011/020] {'loss': 1.6550978452682494, 'top1': 0.4229, 'top5': 0.9103}
+[2022-01-19 06:14:56,133] [RandAugment] [INFO] save model@11 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:15:17,410] [RandAugment] [INFO] [train 012/020] {'loss': 47.21889680431735, 'top1': 0.4571572580645161, 'top5': 0.9248991935483871}
+[2022-01-19 06:15:17,803] [RandAugment] [INFO] [valid 012/020] {'loss': 1.4786182889938355, 'top1': 0.4485000023841858, 'top5': 0.9350000038146973}
+[2022-01-19 06:15:18,936] [RandAugment] [INFO] [*test 012/020] {'loss': 1.4771718647003174, 'top1': 0.4503, 'top5': 0.9305}
+[2022-01-19 06:15:18,937] [RandAugment] [INFO] save model@12 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:15:40,435] [RandAugment] [INFO] [train 013/020] {'loss': 44.923203960541755, 'top1': 0.48235887096774194, 'top5': 0.9380040322580645}
+[2022-01-19 06:15:40,830] [RandAugment] [INFO] [valid 013/020] {'loss': 1.4040554389953612, 'top1': 0.48450000286102296, 'top5': 0.9355000023841857}
+[2022-01-19 06:15:41,970] [RandAugment] [INFO] [*test 013/020] {'loss': 1.4292211481094361, 'top1': 0.4699, 'top5': 0.9317}
+[2022-01-19 06:15:41,971] [RandAugment] [INFO] save model@13 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:16:03,331] [RandAugment] [INFO] [train 014/020] {'loss': 43.43423498830488, 'top1': 0.4954637096774194, 'top5': 0.9420362903225806}
+[2022-01-19 06:16:03,722] [RandAugment] [INFO] [valid 014/020] {'loss': 1.3207375087738038, 'top1': 0.5115, 'top5': 0.9400000057220459}
+[2022-01-19 06:16:04,859] [RandAugment] [INFO] [*test 014/020] {'loss': 1.3596035245895386, 'top1': 0.5065, 'top5': 0.9369}
+[2022-01-19 06:16:04,860] [RandAugment] [INFO] save model@14 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:16:26,924] [RandAugment] [INFO] [train 015/020] {'loss': 42.30325375833819, 'top1': 0.5095766129032258, 'top5': 0.9430443548387096}
+[2022-01-19 06:16:27,327] [RandAugment] [INFO] [valid 015/020] {'loss': 1.327609287261963, 'top1': 0.48950000166893004, 'top5': 0.9415000019073486}
+[2022-01-19 06:16:28,456] [RandAugment] [INFO] [*test 015/020] {'loss': 1.3356733703613282, 'top1': 0.5089, 'top5': 0.9421}
+[2022-01-19 06:16:28,457] [RandAugment] [INFO] save model@15 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:16:49,832] [RandAugment] [INFO] [train 016/020] {'loss': 40.21449799691477, 'top1': 0.5504032258064516, 'top5': 0.9460685483870968}
+[2022-01-19 06:16:50,228] [RandAugment] [INFO] [valid 016/020] {'loss': 1.2336024656295776, 'top1': 0.5360000028610229, 'top5': 0.95000000333786}
+[2022-01-19 06:16:51,378] [RandAugment] [INFO] [*test 016/020] {'loss': 1.2745719493865966, 'top1': 0.5344, 'top5': 0.9467}
+[2022-01-19 06:16:51,379] [RandAugment] [INFO] save model@16 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:17:12,802] [RandAugment] [INFO] [train 017/020] {'loss': 39.00385152139971, 'top1': 0.5448588709677419, 'top5': 0.9627016129032258}
+[2022-01-19 06:17:13,217] [RandAugment] [INFO] [valid 017/020] {'loss': 1.3183658876419067, 'top1': 0.5230000023841858, 'top5': 0.9445000014305115}
+[2022-01-19 06:17:14,362] [RandAugment] [INFO] [*test 017/020] {'loss': 1.3022290291786194, 'top1': 0.5401, 'top5': 0.9431}
+[2022-01-19 06:17:14,363] [RandAugment] [INFO] save model@17 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:17:35,728] [RandAugment] [INFO] [train 018/020] {'loss': 37.88642108055853, 'top1': 0.5735887096774194, 'top5': 0.9566532258064516}
+[2022-01-19 06:17:36,118] [RandAugment] [INFO] [valid 018/020] {'loss': 1.299267792701721, 'top1': 0.5180000033378601, 'top5': 0.9500000057220459}
+[2022-01-19 06:17:37,246] [RandAugment] [INFO] [*test 018/020] {'loss': 1.3045702049255372, 'top1': 0.5292, 'top5': 0.9461}
+[2022-01-19 06:17:58,509] [RandAugment] [INFO] [train 019/020] {'loss': 37.736231865421416, 'top1': 0.5725806451612904, 'top5': 0.9611895161290323}
+[2022-01-19 06:17:58,896] [RandAugment] [INFO] [valid 019/020] {'loss': 1.2212297382354735, 'top1': 0.5440000028610229, 'top5': 0.9570000033378601}
+[2022-01-19 06:18:00,026] [RandAugment] [INFO] [*test 019/020] {'loss': 1.2328366918563842, 'top1': 0.5575, 'top5': 0.9529}
+[2022-01-19 06:18:00,028] [RandAugment] [INFO] save model@19 to wresnet_cifar10_new_search_bs_final.pth
+[2022-01-19 06:18:21,310] [RandAugment] [INFO] [train 020/020] {'loss': 37.572903725408736, 'top1': 0.5821572580645161, 'top5': 0.9596774193548387}
+[2022-01-19 06:18:21,707] [RandAugment] [INFO] [valid 020/020] {'loss': 1.2505344438552857, 'top1': 0.5345000004768372, 'top5': 0.95000000333786}
+[2022-01-19 06:18:22,850] [RandAugment] [INFO] [*test 020/020] {'loss': 1.2624310079574586, 'top1': 0.5488, 'top5': 0.9511}
+[2022-01-19 06:18:22,855] [RandAugment] [INFO] done.
+[2022-01-19 06:18:22,856] [RandAugment] [INFO] model: {'type': 'wresnet40_2'}
+[2022-01-19 06:18:22,856] [RandAugment] [INFO] augmentation: rwaug_s
+[2022-01-19 06:18:22,856] [RandAugment] [INFO] 
+{
+    "loss_train": 37.736231865421416,
+    "loss_valid": 1.2212297382354735,
+    "loss_test": 1.2328366918563842,
+    "top1_train": 0.5725806451612904,
+    "top1_valid": 0.5440000028610229,
+    "top1_test": 0.5575,
+    "top5_train": 0.9611895161290323,
+    "top5_valid": 0.9570000033378601,
+    "top5_test": 0.9529,
+    "epoch": 19
+}
+[2022-01-19 06:18:22,857] [RandAugment] [INFO] elapsed time: 0.133 Hours
+[2022-01-19 06:18:22,857] [RandAugment] [INFO] top1 error in testset: 0.4425
+[2022-01-19 06:18:22,857] [RandAugment] [INFO] wresnet_cifar10_new_search_bs_final.pth
