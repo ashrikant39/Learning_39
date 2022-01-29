@@ -280,15 +280,15 @@ def train_and_eval(tag, dataroot, loader_num = 6, test_ratio=0.1, ops_num = 2, e
     if not reporter:
         reporter = lambda **kwargs: 0
 
-    max_epoch = C.get()['epoch']
-    aug_length = len(aug_ohl_list)
+    max_epoch = C.get()['epoch']    # Loading a Config
+    aug_length = len(aug_ohl_list)  # ?
 
     #Initialize the augmentation parameters!
-    tp_alpha = np.log(args.init_tp/(1-args.init_tp))
-    tp_param = torch.nn.Parameter(torch.ones(1,requires_grad=True) * tp_alpha,requires_grad=True)
-    aug_param = torch.nn.Parameter(torch.zeros(aug_length,requires_grad=True),requires_grad=True)
-    optimizer_aug = torch.optim.Adam((aug_param,),lr=param_lr, betas=(0.5, 0.999))
-    optimizer_tp = torch.optim.Adam((tp_param,),lr=args.tp_lr, betas=(0.5, 0.999))
+    # tp_alpha = np.log(args.init_tp/(1-args.init_tp))
+    # tp_param = torch.nn.Parameter(torch.ones(1,requires_grad=True) * tp_alpha,requires_grad=True)
+    # aug_param = torch.nn.Parameter(torch.zeros(aug_length,requires_grad=True),requires_grad=True)
+    # optimizer_aug = torch.optim.Adam((aug_param,),lr=param_lr, betas=(0.5, 0.999))
+    # optimizer_tp = torch.optim.Adam((tp_param,),lr=args.tp_lr, betas=(0.5, 0.999))
 
     trainsampler, validloader, testloader_ = get_val_test_dataloader(C.get()['dataset'], C.get()['batch'], dataroot, test_ratio)
 
@@ -371,7 +371,7 @@ def train_and_eval(tag, dataroot, loader_num = 6, test_ratio=0.1, ops_num = 2, e
         logger.info('evaluation only+')
         model.eval()
         rs = dict()
-        rs['train'] = run_epoch(model, trainloader, criterion_val, None, desc_default='train', epoch=0, writer=writers[0])
+        rs['train'] = run_epoch(model, trainsampler, criterion_val, None, desc_default='train', epoch=0, writer=writers[0])
         rs['valid'] = run_epoch(model, validloader, criterion_val, None, desc_default='valid', epoch=0, writer=writers[1])
         rs['test'] = run_epoch(model, testloader_, criterion_val, None, desc_default='*test', epoch=0, writer=writers[2])
         for key, setname in itertools.product(['loss', 'top1', 'top5'], ['train', 'valid', 'test']):
@@ -388,20 +388,21 @@ def train_and_eval(tag, dataroot, loader_num = 6, test_ratio=0.1, ops_num = 2, e
     w0s_mt=[]
     for epoch in range(epoch_start, max_epoch + 1):
         
-        AugTypes=[(ops_num, select_op(aug_param, ops_num)) for _ in range(loader_num)]
-        random.shuffle(trainsampler.indices)
-        print(AugTypes)
-        loaders = Get_DataLoaders_Epoch_s(
-            C.get()['dataset'], C.get()['batch'], dataroot, trainsampler, AugTypes, loader_num = len(AugTypes))
-        for loader in loaders[1:]:
-            print((loader.dataset.transform.transforms[0].n,loader.dataset.transform.transforms[0].idxs))
+        # AugTypes=[(ops_num, select_op(aug_param, ops_num)) for _ in range(loader_num)]
+        # random.shuffle(trainsampler.indices)
+        # print(AugTypes)
+        # loaders = Get_DataLoaders_Epoch_s(
+        #     C.get()['dataset'], C.get()['batch'], dataroot, trainsampler, AugTypes, loader_num = len(AugTypes))
+        # for loader in loaders[1:]:
+        #     print((loader.dataset.transform.transforms[0].n,loader.dataset.transform.transforms[0].idxs))
         model.train()
         rs = dict()
         
-        rs['train'] = run_epoch_search(
-            model, loaders, validloader, criterion, optimizer,optimizer_aug, optimizer_tp, aug_param, tp_param,
-            explore_ratio = explore_ratio, ops_num = ops_num, desc_default='train', epoch=epoch, 
-            writer=writers[0], verbose=True, scheduler=scheduler, dict_reward=dict_reward, w0s_at=w0s_at, w0s_mt = w0s_mt)
+        rs['train']= run_epoch(model, validloader, criterion_val, None, desc_default='valid', epoch=epoch, writer=writers[1], verbose=True)
+        # rs['train'] = run_epoch_search(
+        #     model, loaders, validloader, criterion, optimizer,optimizer_aug, optimizer_tp, aug_param, tp_param,
+        #     explore_ratio = explore_ratio, ops_num = ops_num, desc_default='train', epoch=epoch, 
+        #     writer=writers[0], verbose=True, scheduler=scheduler, dict_reward=dict_reward, w0s_at=w0s_at, w0s_mt = w0s_mt)
         model.eval()
 
         if math.isnan(rs['train']['loss']):

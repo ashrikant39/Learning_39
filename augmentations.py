@@ -250,6 +250,7 @@ smooth_ohl = lambda pil_img: smooth.do_transform(pil_img, 0)
 aug_ohl_list.append(smooth_ohl)
 aug_name_ls.append('Smooth.')
 aug_ohl_list_rotate=[]
+
 def _rotate_impl(pil_img, level):
   """Rotates `pil_img` from -30 to 30 degrees depending on `level`."""
   degrees = int_parameter(level, 30)
@@ -524,6 +525,8 @@ def augment_mag_stage_list():
         tmp.append(lambda pil_img:op.do_transform(pil_img, m))
       amsl.append(tmp)
     return amsl
+
+
 class Curriculum_Aug:
     def __init__(self, n, th):
         self.n = n
@@ -541,6 +544,8 @@ class Curriculum_Aug:
           img = self.aug_ohl_list[s][idx](img)
           img = img.convert('RGB')
       return img
+
+      
 class Lighting(object):
     """Lighting noise(AlexNet - style PCA - based noise)"""
 
